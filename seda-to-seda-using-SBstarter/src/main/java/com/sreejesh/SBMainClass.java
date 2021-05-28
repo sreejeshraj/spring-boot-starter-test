@@ -12,13 +12,13 @@ import starter.file_to_seda.config.greeting.Hello;
 
 @SpringBootApplication
 //@ImportResource("classpath:META-INF/spring/applicationContext.xml") 
-public class CopyFileCamelMainClass implements ApplicationRunner {
+public class SBMainClass implements ApplicationRunner {
 
 	@Autowired
 	Hello hello;
 
 	public static void main(String[] args) {
-		SpringApplication.run(CopyFileCamelMainClass.class, args);
+		SpringApplication.run(SBMainClass.class, args);
 
 	}
 

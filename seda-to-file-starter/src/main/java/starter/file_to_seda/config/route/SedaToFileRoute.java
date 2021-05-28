@@ -10,14 +10,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Component
-@ConfigurationProperties(prefix="camel-demo-route")
 @Data
 @EqualsAndHashCode(callSuper=true)
-@ConditionalOnProperty(name = "inputFolder")
-public class FileToSedaRoute extends RouteBuilder {
+@ConditionalOnProperty(name = "outputFolder")
+public class SedaToFileRoute extends RouteBuilder {
 
 	// The value of this property is injected from application.properties based on the profile chosen.
-	private String injectedName;
+
 	
 	@Override
 	public void configure() throws Exception {
@@ -26,14 +25,14 @@ public class FileToSedaRoute extends RouteBuilder {
 		
 //		errorHandler(deadLetterChannel("seda:errorQueue").maximumRedeliveries(5).redeliveryDelay(1000));
 
-		from("file://{{inputFolder}}?delay=10s&noop=true")
-		.routeId("InputFolderToTestSedaRoute")
-		.setProperty("myProperty", constant("myPropertyValue"))
-		.setHeader("myHeader", constant("MY_HEADER_CONSTANT_VALUE"))
-		.to("seda://testSeda")
-		.log("***** InputFolderToTestSedaRoute - exchangeProperty.myProperty:${exchangeProperty.myProperty}")
-		.log("***** InputFolderToTestSedaRoute - exchangeId:${exchangeId}")
-		.log("\nSTARTER 1 - InputFolderToTestSedaRoute **** Input File Pushed To testSeda ***** :"+injectedName+"\n");
+		from("seda://outputSeda")
+		.routeId("OutputSedaToFileRoute")
+		.log("***** OutputSedaToFileRoute - exchangeProperty.myProperty:${exchangeProperty.myProperty}")
+		.log("***** OutputSedaToFileRoute - exchangeId:${exchangeId}")
+		.to("file://{{outputFolder}}")
+		.log("\nSTARTER 2 - OutputSedaToFileRoute ***** File written to output folder!!!\n")
+		;
+//		.log("**** Input File Pushed To Output Folder ***** :"+injectedName);
 
 		/*from("seda://testSeda")
 		.routeId("TestSedaToOutputFolderRoute")

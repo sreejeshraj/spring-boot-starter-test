@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sreejesh</groupId>
-	<artifactId>seda-to-file-using-SBstarter-for-input-data</artifactId>
+	<artifactId>seda-to-seda-using-SBstarter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<parent>
@@ -25,6 +25,11 @@
 		<dependency>
 			<groupId>starter.file_to_seda</groupId>
 			<artifactId>file-to-seda-starter</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>starter.file_to_seda</groupId>
+			<artifactId>seda-to-file-starter</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
