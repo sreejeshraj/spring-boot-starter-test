@@ -5,6 +5,7 @@ import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.core.env.Environment;
 
 public class ProgrammaticBeanDefinitionInitializer implements ApplicationContextInitializer<GenericApplicationContext> {
+
     @Override
     public void initialize(GenericApplicationContext applicationContext) {
         System.out.println("\n\nHELLO ApplicationContextInitializer!!!\n\n");

@@ -31,6 +31,9 @@ public class SBMainClass implements ApplicationRunner {
 	@Autowired
 	NormalComponent nc;
 
+	@Autowired
+	SampleComponent sc;
+
 	public static void main(String[] args) {
 		SpringApplication.run(SBMainClass.class, args);
 
@@ -43,6 +46,8 @@ public class SBMainClass implements ApplicationRunner {
 		System.out.println(myNormalClassDynamicallyCreated.sayHelloFromMyNormalClass());
 		System.out.println("dynamicBeanDefinitionSupplier.getTestInjectedValue():"+dynamicBeanDefinitionSupplier.getTestInjectedValue());
 		System.out.println("nc.getNcString():"+nc.getNcString());
+		System.out.println("sc.getScString():"+sc.getScString());
+		System.out.println("sc.getEndpointMapList():"+sc.getEndpointMapList());
 		System.out.println("\n\n****** ApplicationRunner has exited!!! *****\n\n");
 	}
 }

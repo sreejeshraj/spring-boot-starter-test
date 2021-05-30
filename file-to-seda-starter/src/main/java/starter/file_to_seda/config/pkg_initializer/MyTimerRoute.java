@@ -18,6 +18,7 @@ public class MyTimerRoute extends RouteBuilder {
     public void configure() throws Exception {
         from("timer://" + timerName +"?period=3s")
         .log("*** HELLO! I am from dynamically injected timer route!!! - " + logMessage + " ***")
+
         ;
     }
 }
