@@ -1,1 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=starter.file_to_seda.config.FileToSedaAutoConfiguration
+org.springframework.context.ApplicationContextInitializer=starter.file_to_seda.config.pkg_initializer.ProgrammaticBeanDefinitionInitializer
